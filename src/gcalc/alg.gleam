@@ -58,9 +58,6 @@ pub fn abs(n: Float) -> Float {
 /// and returns the floor of the result
 /// (i.e. the largest integer less than or equal to the result)
 ///
-/// The implementation is based on the Newton-Raphson method
-/// for finding the square root of a number
-///
 /// I may implement a precise version of the square root function
 /// in the future that does not floor the result
 pub fn sqrt(n: Float) -> Result(Float, MathError) {
