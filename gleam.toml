@@ -7,7 +7,10 @@ version = "0.0.1"
 description = "A math library for Gleam. Written in pure Gleam."
 licences = ["BSD-3-Clause"]
 repository = { type = "github", user = "korbexmachina", repo = "gcalc" }
-links = [{ title = "Website", href = "https://github.com/korbexmachina/gcalc" }]
+links = [
+# { title = "Website", href = "https://github.com/korbexmachina/gcalc" },
+{ title = "Author's website", href = "https://www.korbexmachina.com" },
+]
 #
 # For a full reference of all the available options, you can have a look at
 # https://gleam.run/writing-gleam/gleam-toml/. 
