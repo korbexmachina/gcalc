@@ -1,4 +1,4 @@
-//// A set of algebraic operations for the for Gleam programs
+//// A set of algebraic operations for Gleam programs
 
 import gleam/float
 
