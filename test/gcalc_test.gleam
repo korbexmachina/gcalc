@@ -1,6 +1,6 @@
 import gleeunit
 import gleeunit/should
-import calc/alg
+import gcalc/alg
 
 pub fn main() {
   gleeunit.main()
