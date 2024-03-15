@@ -2,7 +2,7 @@
 
 import gleam/float
 
-/// Return the exponentiation of the two arguments
+/// Returns the exponentiation of the two arguments
 pub fn pow(base: Float, power: Float) -> Float {
   pow_iter(base, power, 1.0)
 }
@@ -15,7 +15,7 @@ fn pow_iter(base: Float, power: Float, accumulator: Float) -> Float {
   }
 }
 
-/// Return the factorial of the argument
+/// Returns the factorial of the argument
 pub fn factorial(n: Float) -> Float {
   factorial_iter(n, 1.0)
 }
@@ -28,7 +28,7 @@ fn factorial_iter(n: Float, accumulator: Float) -> Float {
   }
 }
 
-/// Return the square root of the argument
+/// Returns the square root of the argument
 pub fn sqrt(n: Float) -> Float {
   case n {
     0.0 -> 0.0
@@ -53,7 +53,7 @@ fn sqrt_iter(x0: Float, x1: Float, n: Float) -> Float {
   }
 }
 
-/// Return the absolute value of the argument
+/// Returns the absolute value of the argument
 pub fn abs(n: Float) -> Float {
   case n <. 0.0 {
     True -> 0.0 -. n
