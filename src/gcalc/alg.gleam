@@ -57,9 +57,6 @@ pub fn abs(n: Float) -> Float {
 /// Note: This function only supports non-negative values
 /// and returns the floor of the result
 /// (i.e. the largest integer less than or equal to the result)
-///
-/// I may implement a precise version of the square root function
-/// in the future that does not floor the result
 pub fn sqrt(n: Float) -> Result(Float, MathError) {
   case n <. 0.0 {
     True -> Error(ValueOutOfRange)
