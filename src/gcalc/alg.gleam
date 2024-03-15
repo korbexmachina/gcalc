@@ -2,6 +2,13 @@
 
 import gleam/float
 
+/// MathError represents an error that can occur when performing a mathematical operation
+pub type MathError {
+  DivisionByZero
+  ValueOutOfRange
+  UnsupportedOperation
+}
+
 /// Returns the exponentiation of the two arguments
 pub fn pow(base: Float, power: Float) -> Float {
   pow_iter(base, power, 1.0)
@@ -16,8 +23,13 @@ fn pow_iter(base: Float, power: Float, accumulator: Float) -> Float {
 }
 
 /// Returns the factorial of the argument
-pub fn factorial(n: Float) -> Float {
-  factorial_iter(n, 1.0)
+///
+/// Note: This function only supports non-negative values
+pub fn factorial(n: Float) -> Result(Float, MathError) {
+  case n <. 0.0 {
+    True -> Error(UnsupportedOperation)
+    False -> Ok(factorial_iter(n, 1.0))
+  }
 }
 
 /// Helper function for the factorial function
@@ -28,16 +40,23 @@ fn factorial_iter(n: Float, accumulator: Float) -> Float {
   }
 }
 
+/// Returns the absolute value of the argument
+pub fn abs(n: Float) -> Float {
+  case n <. 0.0 {
+    True -> 0.0 -. n
+    False -> n
+  }
+}
+
 /// Returns the square root of the argument
-pub fn sqrt(n: Float) -> Float {
-  case n {
-    0.0 -> 0.0
-    _ -> {
-      let x0 = n /. 2.0
-      let x1 = { x0 +. n /. x0 } /. 2.0
-      sqrt_iter(x0, x1, n)
-      |> float.floor()
-    }
+pub fn sqrt(n: Float) -> Result(Float, MathError) {
+  case n <. 0.0 {
+    True -> Error(ValueOutOfRange)
+    False ->
+      Ok(
+        sqrt_iter(0.0, 1.0, n)
+        |> float.floor(),
+      )
   }
 }
 
@@ -50,13 +69,5 @@ fn sqrt_iter(x0: Float, x1: Float, n: Float) -> Float {
       let x1 = { x0 +. n /. x0 } /. 2.0
       sqrt_iter(x0, x1, n)
     }
-  }
-}
-
-/// Returns the absolute value of the argument
-pub fn abs(n: Float) -> Float {
-  case n <. 0.0 {
-    True -> 0.0 -. n
-    False -> n
   }
 }
