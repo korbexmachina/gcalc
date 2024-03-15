@@ -3,18 +3,28 @@
 import gleam/float
 
 /// Return the exponentiation of the two arguments
-pub fn pow(base: Int, power: Int, accumulator: Int) -> Int {
+pub fn pow(base: Float, power: Float) -> Float {
+  pow_iter(base, power, 1.0)
+}
+
+/// Helper function for the pow function
+fn pow_iter(base: Float, power: Float, accumulator: Float) -> Float {
   case power {
-    0 -> accumulator
-    _ -> pow(base, power - 1, base * accumulator)
+    0.0 -> accumulator
+    _ -> pow_iter(base, power -. 1.0, base *. accumulator)
   }
 }
 
 /// Return the factorial of the argument
-pub fn factorial(n: Int) -> Int {
+pub fn factorial(n: Float) -> Float {
+  factorial_iter(n, 1.0)
+}
+
+/// Helper function for the factorial function
+fn factorial_iter(n: Float, accumulator: Float) -> Float {
   case n {
-    0 -> 1
-    _ -> n * factorial(n - 1)
+    0.0 -> accumulator
+    _ -> factorial_iter(n -. 1.0, n *. accumulator)
   }
 }
 
