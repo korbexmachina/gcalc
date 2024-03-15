@@ -2,7 +2,8 @@
 
 import gleam/float
 
-/// MathError represents an error that can occur when performing a mathematical operation
+/// MathError represents an error that can occur when performing
+/// a mathematical operation
 pub type MathError {
   DivisionByZero
   ValueOutOfRange
@@ -10,6 +11,7 @@ pub type MathError {
 }
 
 /// Returns the exponentiation of the two arguments
+/// (i.e. the first argument raised to the power of the second argument)
 pub fn pow(base: Float, power: Float) -> Float {
   pow_iter(base, power, 1.0)
 }
@@ -22,7 +24,8 @@ fn pow_iter(base: Float, power: Float, accumulator: Float) -> Float {
   }
 }
 
-/// Returns the factorial of the argument
+/// Returns a result containing the factorial of the argument
+/// or an error if the argument is negative
 ///
 /// Note: This function only supports non-negative values
 pub fn factorial(n: Float) -> Result(Float, MathError) {
@@ -48,7 +51,18 @@ pub fn abs(n: Float) -> Float {
   }
 }
 
-/// Returns the square root of the argument
+/// Returns a result containing the square root of the argument
+/// or an error if the argument is negative
+///
+/// Note: This function only supports non-negative values
+/// and returns the floor of the result
+/// (i.e. the largest integer less than or equal to the result)
+///
+/// The implementation is based on the Newton-Raphson method
+/// for finding the square root of a number
+///
+/// I may implement a precise version of the square root function
+/// in the future that does not floor the result
 pub fn sqrt(n: Float) -> Result(Float, MathError) {
   case n <. 0.0 {
     True -> Error(ValueOutOfRange)
