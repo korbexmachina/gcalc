@@ -79,3 +79,35 @@ fn sqrt_iter(x0: Float, x1: Float, n: Float) -> Float {
     }
   }
 }
+
+/// Returns a result containing 2^n where n is the argument
+pub fn pow2(n: Float) -> Result(Float, MathError) {
+  case n <. 0.0 {
+    True -> Error(ValueOutOfRange)
+    False -> Ok(pow2_iter(n, 1.0))
+  }
+}
+
+/// Helper function for the pow2 function
+fn pow2_iter(n: Float, accumulator: Float) -> Float {
+  case n {
+    0.0 -> accumulator
+    _ -> pow2_iter(n -. 1.0, 2.0 *. accumulator)
+  }
+}
+
+/// Returns a result containing 10^n where n is the argument
+pub fn pow10(n: Float) -> Result(Float, MathError) {
+  case n <. 0.0 {
+    True -> Error(ValueOutOfRange)
+    False -> Ok(pow10_iter(n, 1.0))
+  }
+}
+
+/// Helper function for the pow10 function
+fn pow10_iter(n: Float, accumulator: Float) -> Float {
+  case n {
+    0.0 -> accumulator
+    _ -> pow10_iter(n -. 1.0, 10.0 *. accumulator)
+  }
+}

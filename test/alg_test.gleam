@@ -102,3 +102,15 @@ pub fn abs_0_test() {
   alg.abs(0.0)
   |> should.equal(0.0)
 }
+
+/// Test that 2^3 = 8
+pub fn pow2_3_test() {
+  alg.pow2(3.0)
+  |> should.equal(Ok(8.0))
+}
+
+/// Test that 10^3 = 1000
+pub fn pow10_3_test() {
+  alg.pow10(3.0)
+  |> should.equal(Ok(1000.0))
+}
