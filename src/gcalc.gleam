@@ -12,6 +12,13 @@ pub type MathError {
 
 /// Returns the exponentiation of the two arguments
 /// (i.e. the first argument raised to the power of the second argument)
+///
+/// Example:
+/// ```
+/// let base = 2.0
+/// let power = 3.0
+/// pow(base, power) // 8.0
+/// ```
 pub fn pow(base: Float, power: Float) -> Float {
   pow_iter(base, power, 1.0)
 }
