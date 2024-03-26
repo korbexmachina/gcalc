@@ -61,8 +61,13 @@ pub fn abs(n: Float) -> Float {
 /// or an error if the argument is negative
 ///
 /// Note: This function only supports non-negative values
-/// and returns the floor of the result
-/// (i.e. the largest integer less than or equal to the result)
+///
+/// Example:
+/// ```gleam
+/// sqrt(4.0)             // Ok(2.000000000000002)
+/// |> result.unwrap(0.0) // 2.000000000000002
+/// |> float.floor        // 2.0
+/// ```
 pub fn sqrt(n: Float) -> Result(Float, MathError) {
   case n <. 0.0 {
     True -> Error(ValueOutOfRange)
