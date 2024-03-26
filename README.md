@@ -14,7 +14,7 @@ import gcalc
 pub fn main() {
   let x = 2.0
   let y = 4.0
-  let z = alg.pow(x, y)
+  let z = gcalc.pow(x, y)
 
   io.debug(z)
   // Ok(16.0)
@@ -23,7 +23,7 @@ pub fn main() {
   |> io.debug
   // Ok(4.000000000000051)
 
-  alg.factorial(y)
+  gcalc.factorial(y)
   |> io.debug
   // Ok(24.0)
 }
