@@ -131,6 +131,8 @@ fn pow10_iter(n: Float, accumulator: Float) -> Float {
 // Cube Root Functions --------------------------------------------------------
 
 /// Returns a result containing the cube root of the argument
+///
+/// Note: This function only supports non-negative values
 pub fn cbrt(n: Float) -> Result(Float, MathError) {
   case n <. 0.0 {
     True -> Error(ValueOutOfRange)
