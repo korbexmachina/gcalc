@@ -1,7 +1,5 @@
 //// A set of algebraic operations for Gleam programs
 
-import gleam/float
-
 /// MathError represents an error that can occur when performing
 /// a mathematical operation
 pub type MathError {
@@ -68,11 +66,7 @@ pub fn abs(n: Float) -> Float {
 pub fn sqrt(n: Float) -> Result(Float, MathError) {
   case n <. 0.0 {
     True -> Error(ValueOutOfRange)
-    False ->
-      Ok(
-        sqrt_iter(0.0, 1.0, n)
-        |> float.floor(),
-      )
+    False -> Ok(sqrt_iter(0.0, 1.0, n))
   }
 }
 
