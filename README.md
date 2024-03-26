@@ -3,14 +3,13 @@
 [![Package Version](https://img.shields.io/hexpm/v/gcalc)](https://hex.pm/packages/gcalc)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/gcalc/)
 
-A math library for Gleam. Written in pure Gleam.
-
+A pure gleam library for mathematical calculations.
 ```sh
 gleam add gcalc
 ```
 ```gleam
 import gleam/io
-import gcalc/alg
+import gcalc
 
 pub fn main() {
   let x = 2.0
@@ -18,15 +17,15 @@ pub fn main() {
   let z = alg.pow(x, y)
 
   io.debug(z)
-  // 16.0
+  // Ok(16.0)
 
-  alg.sqrt(z)
+  gcalc.sqrt(z)
   |> io.debug
-  // 4.0
+  // Ok(4.000000000000051)
 
   alg.factorial(y)
   |> io.debug
-  // 24.0
+  // Ok(24.0)
 }
 ```
 
