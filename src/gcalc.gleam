@@ -151,3 +151,19 @@ fn cbrt_iter(x0: Float, x1: Float, n: Float) -> Float {
     }
   }
 }
+
+// Multiply-add Function ------------------------------------------------------
+
+/// Returns the result of x*y+z 
+/// without losing precision in any intermediate result
+/// 
+/// Example:
+/// ```
+/// let x = 10.0
+/// let y = 20.0
+/// let z = 30.0
+/// fma(x,y,z) // 230.0
+/// ```
+pub fn fma(x: Float, y: Float, z: Float) -> Float {
+  x *. y +. z
+}
