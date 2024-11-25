@@ -113,6 +113,12 @@ fn pow2_iter(n: Float, accumulator: Float) -> Float {
 }
 
 /// Returns a result containing 10^n where n is the argument
+///
+/// Example:
+/// ```
+/// let n = 2.0
+/// pow10(n) // Ok(100.0)
+/// ```
 pub fn pow10(n: Float) -> Result(Float, MathError) {
   case n <. 0.0 {
     True -> Error(ValueOutOfRange)
@@ -133,6 +139,12 @@ fn pow10_iter(n: Float, accumulator: Float) -> Float {
 /// Returns a result containing the cube root of the argument
 ///
 /// Note: This function only supports non-negative values
+///
+/// Example:
+/// ```
+/// let n = 27.0
+/// cbrt(n) // 3.0
+/// ```
 pub fn cbrt(n: Float) -> Result(Float, MathError) {
   case n <. 0.0 {
     True -> Error(ValueOutOfRange)
@@ -148,6 +160,34 @@ fn cbrt_iter(x0: Float, x1: Float, n: Float) -> Float {
       let x0 = x1
       let x1 = { x0 +. n /. { x0 *. x0 } } /. 2.0
       cbrt_iter(x0, x1, n)
+    }
+  }
+}
+
+// GCD ------------------------------------------------------------------------
+
+/// Returns the greatest common divisor of a and b using the Euclidean
+/// Algorithm
+pub fn gcd(a: Int, b: Int) -> Int {
+  case a == b {
+    True -> a
+    False ->
+      case a > b {
+        True -> gcd_iter(a, b)
+        False -> gcd_iter(b, a)
+      }
+  }
+}
+
+/// Helper function for the gcd function
+fn gcd_iter(a: Int, b: Int) {
+  case b == 0 {
+    True -> a
+    False -> {
+      let temp = b
+      let b = a % b
+      let a = temp
+      gcd_iter(a, b)
     }
   }
 }
