@@ -1,5 +1,5 @@
-import gleeunit/should
 import gcalc
+import gleeunit/should
 
 /// Test that 1 ^ 1 = 1
 pub fn pow_1_test() {

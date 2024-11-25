@@ -1,7 +1,7 @@
 import gcalc
-import gleeunit/should
-import gleam/result
 import gleam/float
+import gleam/result
+import gleeunit/should
 
 /// Test that sqrt(4) = 2
 pub fn sqrt_4_test() {

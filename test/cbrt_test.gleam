@@ -1,7 +1,7 @@
 import gcalc
-import gleeunit/should
-import gleam/result
 import gleam/float
+import gleam/result
+import gleeunit/should
 
 /// Test that cbrt(8) = 2
 pub fn cbrt_8_test() {
